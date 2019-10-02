@@ -1,0 +1,27 @@
+---
+title: "My Data"
+author: Camila Sanmiguel
+date: 10/01/19
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<br>
+
+This is my current plan and collection of data that I'll be springboarding my project off of! 
+
+**I want to examine Mexican cartel violence and its relationship to illegal immigration.** 
+Do spikes in cartel violence cause spikes in illegal immigration to the U.S.? 
+**I want to show progression over the years of large occurrences of violence beside the progression of border apprehensions.** 
+
+As of now, I think I will need two data sources for this: the first is from the CBP.
+2019: https://www.cbp.gov/newsroom/stats/sw-border-migration/usbp-sw-border-apprehensions
+2018: 
+2017: https://www.cbp.gov/newsroom/stats/usbp-sw-border-apprehensions-fy2017# 
+
+The second is from a number of Mexican sources:
+
+
+
