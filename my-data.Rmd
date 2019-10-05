@@ -1,27 +1,71 @@
 ---
-title: "My Data"
+title: "My Project Data"
 author: Camila Sanmiguel
 date: 10/01/19
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-```
-<br>
+library(tidyverse)
+library(readxl)
 
+# --------------------------------------------------
+
+# I have read in the data from different spreadsheets
+# containing data on Border Patrol apprehensions.
+# I will probably be replacing these with a more 
+# comprehensive csv, which I'm still looking for online,
+# that hopefully contains data for more years.
+bp17 <- read_xlsx("bp-apprehensions-17.xlsx")
+bp18 <- read_xlsx("bp-apprehensions-18.xlsx")
+bp19 <- read_xlsx("bp-apprehensions-19.xlsx")
+bp_since <- read.csv("bp-monthly-apprehensions-since-2000.csv")
+
+# --------------------------------------------------
+
+```
+# Plan
 This is my current plan and collection of data that I'll be springboarding my project off of! 
 
-**I want to examine Mexican cartel violence and its relationship to illegal immigration.** 
+<span style="color:firebrick">
+**I want to examine Mexican cartel violence and its relationship to illegal immigration -- do spikes in incidence of cartel violence galvanize efforts to leave Mexico? How closely do they correlate if at all?**
+<br>
+<br>
 Do spikes in cartel violence cause spikes in illegal immigration to the U.S.? 
-**I want to show progression over the years of large occurrences of violence beside the progression of border apprehensions.** 
+<br>
+<br>
+I want to show progression over the years of large occurrences of violence beside the progression of border apprehensions.</span>
 
-As of now, I think I will need two data sources for this: the first is from the CBP.
+# Data
+As of now, I will be needing two data sources for this: the first is from the CBP.
+<br>
 2019: https://www.cbp.gov/newsroom/stats/sw-border-migration/usbp-sw-border-apprehensions
-2018: 
+<br>
 2017: https://www.cbp.gov/newsroom/stats/usbp-sw-border-apprehensions-fy2017# 
 
-The second is from a number of Mexican sources:
 
+<br>
+
+
+The second source of data is from various Mexican government websites and sources. 
+<br>
+The main one is publicly available from the Mexican government's website.
+
+
+There are a few other sources on https://elcri.men/en/datos.html that I'm exploring still!
+
+```{r, include=FALSE, echo=FALSE}
+
+# --------------------------------------------------
+# Below I read in the data from the government website's 
+# reports on homicide and cartel activity.
+
+read.csv("CNSP-Delitos-2019_ago19.csv")
+
+# --------------------------------------------------
+```
+<br>
+I want to include a source that more definitively addresses specific cartels, but I'm not yet sure how to locate research on this - still searching! For now, the aforementioned are my sources.
 
 
