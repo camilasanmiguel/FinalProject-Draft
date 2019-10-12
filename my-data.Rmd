@@ -9,6 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(readxl)
+library(ggplot2)
+library(janitor)
+library(gt)
+library(gganimate)
+library(ggrepel)
+library(gapminder)
+library(lubridate)
 
 # --------------------------------------------------
 
@@ -17,6 +24,7 @@ library(readxl)
 # I will probably be replacing these with a more 
 # comprehensive csv, which I'm still looking for online,
 # that hopefully contains data for more years.
+
 bp17 <- read_xlsx("bp-apprehensions-17.xlsx")
 bp18 <- read_xlsx("bp-apprehensions-18.xlsx")
 bp19 <- read_xlsx("bp-apprehensions-19.xlsx")
@@ -61,11 +69,66 @@ There are a few other sources on https://elcri.men/en/datos.html that I'm explor
 # Below I read in the data from the government website's 
 # reports on homicide and cartel activity.
 
-read.csv("CNSP-Delitos-2019_ago19.csv")
+x <- read_excel("nm-estatal-victimas.xlsx")
 
 # --------------------------------------------------
 ```
 <br>
 I want to include a source that more definitively addresses specific cartels, but I'm not yet sure how to locate research on this - still searching! For now, the aforementioned are my sources.
+
+----------
+
+According to the U.N.’s Global Study on Homicide published in July 2019, with 13% of the world’s population in 2017, Latin America had 37% of the world’s intentional homicides. Mexico’s homicide rate was once about average for the region, but that has become less true as total homicides have risen steadily in the past two years. This increase is in notable contrast to the countries in the Northern Triangle, where rates of homicide declined between 2017 and 2018. (https://fas.org/sgp/crs/row/R41576.pdf)
+
+Many reports convey Mexican government data, but the data have not consistently been reported promptly or completely. For example, the government of President Felipe Calderón (2006-2012) released tallies of “organized-crime related” homicides through September 2011. For a time, the Peña Nieto administration also issued such estimates, but it stopped in mid-2013. Although precise tallies diverged, during President Calderón’s tenure there was a sharp increase in the number of homicides that began to level off near the end of 2012. In the Peña Nieto administration, after a couple years’ decline, a sharp increase was recorded between 2016 and 2018 and in the first half of 2019, which surpassed previous tallies. Overall, since 2006, many sources maintain that Mexico experienced roughly 150,000 murders related to organized crime, which is about 30% to 50% of total intentional homicides. 
+
+Violence is an intrinsic feature of the trade in illicit drugs. Traffickers use it to settle disputes, and a credible threat of violence maintains employee discipline and a semblance of order with suppliers, creditors, and buyers.9 This type of drug trafficking-related violence has occurred routinely and intermittently in U.S. cities since the early 1980s. The violence now associated with drug trafficking organizations (DTOs) in Mexico is of an entirely different scale. In Mexico, the violence is not only associated with resolving disputes or maintaining discipline but also has been directed toward the government, political candidates, and the media. Some observers note that the excesses of some of Mexico’s violence might be considered exceptional by the typical standards of organized crime.\
+
+Overall, the Latin America region has a significantly higher homicide levels than other regions worldwide. According to the U.N.’s Global Study on Homicide published in July 2019, with 13% of the world’s population in 2017, Latin America had 37% of the world’s intentional homicides.
+
+```{r, first ggplot, echo=FALSE}
+
+# --------------------------------------------------
+
+# Now I'm going to create a ggplot of one small aspect
+# of this data. 
+# For now, I'm visualizing the spikes/falls in homicides
+# in Chihuahua, a particularly rough state along the border
+# that has seen volatility in the past decade as a result
+# of dramatically shifting tides in that region's drug war.
+# I have no clue what this will look like, but I just want 
+# to see -- 
+
+# First I need to figure out the total homicides for  
+# each year. 
+
+axis_categories <- c(2015-01, 2016-01, 2017-01, 2018-01, 2019-01) %>%
+  set_names(c("2015-01", "2016-01", "2017-01", "2018-01", "2019-01"))
+
+old_date <- ymd("2015-01", truncated=1)
+better_date <- myd("01-2015", truncated=1)
+
+
+
+y <- x %>% filter(state == "CHIHUAHUA") %>% 
+  filter(tipo == "SECUESTRO") %>%
+  mutate(better_date = as_datetime(old_date)) 
+
+y %>%
+  add_count(sort=TRUE, name = "new") %>%
+  group_by(date) %>%
+  ggplot(aes(x = date, y = new, color=)) +
+  scale_x_discrete(name="Year", limits=c(2015-01, 2019-01)) + scale_y_discrete(name="Number of Crimes", limits=0, 10000) +
+  geom_line(alpha=0.75) +
+  labs(title = "Femicide in Chihuahua, Mexico",
+       x = "Year",
+       y = "Death toll") 
+
+# Hi I don't know what I'm doing wrong and why it's not 
+# working :( but I swear I'll figure it out!!!
+
+```
+
+
 
 
