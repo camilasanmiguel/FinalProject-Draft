@@ -118,8 +118,9 @@ y %>%
   add_count(sort=TRUE, name = "new") %>%
   group_by(date) %>%
   ggplot(aes(x = date, y = new, color=)) +
-  scale_x_discrete(name="Year", limits=c(2015-01, 2019-01)) + scale_y_discrete(name="Number of Crimes", limits=0, 10000) +
-  geom_line(alpha=0.75) +
+  scale_x_discrete(breaks=c(01-2015, 06-2015, 01-2016, 06-2016, 01-2017, 06-2017)) + 
+  scale_y_discrete(breaks=c(0, 50, 100, 150, 200, 250, 300, 350)) +
+  geom_line() +
   labs(title = "Femicide in Chihuahua, Mexico",
        x = "Year",
        y = "Death toll") 
