@@ -7,7 +7,30 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+# Directions: The most important things about your data and your topic. About 250 words of text is typical. Assume I don't know anything about your topic. Explain it to me. What is the data? What is the context? What do the variables mean? Where did you get the data from? And so on. You should have all your data and have cleaned it up. Obviously, if you find out later that stuff is messed up, you can clean it more. But you must have made an honest effort to square things away.
 ```
-The most important things about your data and your topic. About 250 words of text is typical. Assume I don't know anything about your topic. Explain it to me. What is the data? What is the context? What do the variables mean? Where did you get the data from? And so on.
-You should have all your data and have cleaned it up. Obviously, if you find out later that stuff is messed up, you can clean it more. But you must have made an honest effort to square things away.
+# The Mexican Crisis
+
+According to the U.N.’s Global Study on Homicide published in July 2019, with 13% of the world’s population in 2017, Latin America had 37% of the world’s intentional homicides. Mexico’s homicide rate was once about average for the region, but that has become less true as total homicides have risen steadily in the past two years. This increase is in notable contrast to the countries in the Northern Triangle, where rates of homicide declined between 2017 and 2018.
+
+Many reports convey Mexican government data, but the data have not consistently been reported promptly or completely. For example, the government of President Felipe Calderón (2006-2012) released tallies of “organized-crime related” homicides through September 2011. For a time, the Peña Nieto administration also issued such estimates, but it stopped in mid-2013. Although precise tallies diverged, during President Calderón’s tenure there was a sharp increase in the number of homicides that began to level off near the end of 2012. In the Peña Nieto administration, after a couple years’ decline, a sharp increase was recorded between 2016 and 2018 and in the first half of 2019, which surpassed previous tallies. Overall, since 2006, many sources maintain that Mexico experienced roughly 150,000 murders related to organized crime, which is about 30% to 50% of total intentional homicides. 
+
+Violence is an intrinsic feature of the trade in illicit drugs. Traffickers use it to settle disputes, and a credible threat of violence maintains employee discipline and a semblance of order with suppliers, creditors, and buyers.9 This type of drug trafficking-related violence has occurred routinely and intermittently in U.S. cities since the early 1980s. The violence now associated with drug trafficking organizations (DTOs) in Mexico is of an entirely different scale. In Mexico, the violence is not only associated with resolving disputes or maintaining discipline but also has been directed toward the government, political candidates, and the media. Some observers note that the excesses of some of Mexico’s violence might be considered exceptional by the typical standards of organized crime.
+
+Overall, the Latin America region has a significantly higher homicide levels than other regions worldwide. According to the U.N.’s Global Study on Homicide published in July 2019, with 13% of the world’s population in 2017, Latin America had 37% of the world’s intentional homicides.
+
+# Data
+
+The first source of data is from the U.S. Customs and Border Patrol site:
+
+2019: https://www.cbp.gov/newsroom/stats/sw-border-migration/usbp-sw-border-apprehensions
+2017: https://www.cbp.gov/newsroom/stats/usbp-sw-border-apprehensions-fy2017# 
+
+The second source of data is from various Mexican government websites and sources. 
+
+The main one is publicly available from the Mexican government's website.
+
+There are a few other sources on https://elcri.men/en/datos.html that I'm exploring still!
+
 
