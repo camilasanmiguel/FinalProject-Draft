@@ -1,0 +1,13 @@
+---
+title: "Milestone 5"
+author: Camila Sanmiguel
+date: Oct. 12, 2019
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+The most important things about your data and your topic. About 250 words of text is typical. Assume I don't know anything about your topic. Explain it to me. What is the data? What is the context? What do the variables mean? Where did you get the data from? And so on.
+You should have all your data and have cleaned it up. Obviously, if you find out later that stuff is messed up, you can clean it more. But you must have made an honest effort to square things away.
+
