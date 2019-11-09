@@ -1,0 +1,49 @@
+---
+title: "Milestone 6, Shiny App"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(readxl)
+library(ggplot2)
+library(janitor)
+library(gt)
+library(gganimate)
+library(ggrepel)
+library(gapminder)
+library(lubridate)
+library(rsconnect)
+
+
+
+# --------------------------------------------------
+# Below I read in the data from the government website's 
+# reports on homicide and cartel activity.
+
+x <- read_excel("nm-estatal-victimas.xlsx")
+
+# --------------------------------------------------
+```
+
+
+```{r}
+
+a <- x %>% filter(state == "SINALOA") %>% 
+  filter(tipo == "SECUESTRO") %>%
+  filter(age_group == "0-17") %>%
+  add_count() %>%
+  filter(age_group == "18+") %>%
+  add_count() %>%
+  ggplot(aes(x=age_group, y=count)) + 
+  geom_bar()
+
+# evidently figuring it out still...
+
+```
+
+
+
+
