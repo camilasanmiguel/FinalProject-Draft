@@ -1,0 +1,27 @@
+---
+title: "maps, graphics"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, map, echo=FALSE, message=FALSE}
+
+mx_shape <- read_rds("./clean-data/mx_shape.rds")
+
+homicides <- read_rds("./clean-data/mx_homicides.rds") 
+
+# making a plot below! I want to map
+
+animation <- ggplot() +
+  geom_sf(data = mx_shape) +
+  geom_sf(data = y, aes(color = count)) +
+  transition_manual(y$subject_race) +
+  labs(color = "Subject Race")
+
+write_rds(animation, "./graphics/animation.rds")
+
+read_rds("./graphics/animation.rds")
+```
